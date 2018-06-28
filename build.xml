@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="Probando test" default="run" basedir=".">
+	<target name="test1">
+		<echo>Probando.....</echo>
+	</target>
+	
+	<target name="run" description=""> 
+		<property name="mqsi.home" value="C:\Program Files\IBM\IIB\10.0.0.2\tools"/> 
+		<property name="toolkit.home" value="C:\Program Files\IBM\IIB\10.0.0.2" /> 
+		<property name="ant.bars.basedir" value="C:\apache-ant-1.10.4" /> 
+		<property name="workspaces.dir" value="C:\Users\Pablo\IBM\IIBT10\workspace\ApiMascotas" /> 
+		<property name="bar.name" value="C:\tmp\bars\Temp2.bar" /> 
+		<antcall target="mqsicreatebar.buildbar" /> 
+	</target> 
+	<!-- 
+	Target to build the broker archive using mqsicreatebar 
+	--> 
+	<target name="mqsicreatebar.buildbar"> 
+	<echo message="Building Broker Archive file: ${bar.name} " /> 
+	<exec executable="${mqsi.home}\mqsicreatebar.exe" spawn="false" > 
+	<arg value="-data" /> 
+	<arg value="${workspaces.dir}" /> 
+	<arg value="-b" /> 
+	<arg value="${bar.name}" />
+		<!--
+	<arg value="-p" /> 
+	<arg value="${workspaces.dir}" />
+	--> 
+	<arg value="-o" /> 
+	<arg value="ApiMascotas\gen\ApiMascotas.msgflow" />
+	</exec> 
+	<echo message="Completed building Broker Archive file - ${bar.name} " /> 
+	<echo message="--> -data ${workspaces.dir} -b ${bar.name} -p ApiMascotas -o ${workspaces.dir}\gen\ApiMascotas.msgflow" /> 
+	</target> 
+</project>
