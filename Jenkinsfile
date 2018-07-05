@@ -5,10 +5,9 @@ pipeline {
         }
     }
 	parameters {
-        string(name: 'mqsi.home', defaultValue: '/opt/ibm/iib-10.0.0.10/tools', description: '')
-		string(name: 'toolkit.home', defaultValue: '/opt/ibm/iib-10.0.0.10', description: '')
-		string(name: 'workspaces.dir', defaultValue: '/var/jenkins_home/workspace/Pipelineando/ApiMascotas', description: '')
-		string(name: 'bar.name', defaultValue: '/var/tmp/apimascotas.bar', description: '')
+        string(name: 'mqsihome', defaultValue: '/opt/ibm/iib-10.0.0.10/tools', description: '')
+		string(name: 'workspacesdir', defaultValue: '/var/jenkins_home/workspace/Pipelineando/ApiMascotas', description: '')
+		string(name: 'barname', defaultValue: '/var/tmp/apimascotas.bar', description: '')
     }
     stages {
         stage('Test') {
@@ -19,7 +18,7 @@ pipeline {
         }
 		stage('Compilacion') {
             steps {
-                echo "${mqsi.home}/mqsicreatebar -data ${workspaces.dir} -b ${bar.name} -o ApiMascotas/gen/ApiMascotas.msgflow"
+                echo "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -o ApiMascotas/gen/ApiMascotas.msgflow"
             }
         }
 		
