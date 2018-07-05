@@ -18,7 +18,8 @@ pipeline {
         }
 		stage('Compilacion') {
             steps {
-                echo "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -o ApiMascotas/gen/ApiMascotas.msgflow"
+				sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -o ApiMascotas/gen/ApiMascotas.msgflow"
+                echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -o ApiMascotas/gen/ApiMascotas.msgflow"
             }
         }
 		
