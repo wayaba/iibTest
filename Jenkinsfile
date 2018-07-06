@@ -37,12 +37,13 @@ pipeline {
 				echo "Quien soy: "
 				sh "whoami"
 				echo "Seteo el environment"
+				
 				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
 				
                     //sh "pwd"
 					//echo "puto"
-					//sh "ls -l"
-					sh " . ./mqsiprofile"
+					sh "ls -l"
+					//sh " . ./mqsiprofile"
                 }
 				
 				//sh "sudo /opt/ibm/iib-10.0.0.10/server/bin . ./mqsiprofile"
