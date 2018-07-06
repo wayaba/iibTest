@@ -17,6 +17,18 @@ pipeline {
 				sh "cat /var/jenkins_home/workspace/Pipelineando/README.md"
             }
         }
+		stage('SonarQube') {
+		
+			steps {
+				script {
+					// requires SonarQube Scanner 2.8+
+					scannerHome = tool 'sonnar-jenkins'
+				}
+				withSonarQubeEnv('SonarQube Scanner') {
+					sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+        }
 		stage('Compilacion') {
             steps {
 				echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
