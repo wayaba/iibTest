@@ -17,6 +17,7 @@ pipeline {
 				sh "cat /var/jenkins_home/workspace/Pipelineando/README.md"
             }
         }
+		/*
 		stage('SonarQube') {
 		
 			steps {
@@ -29,6 +30,7 @@ pipeline {
 				}
 			}
         }
+		*/
 		stage('Compilacion') {
             steps {
 				echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
