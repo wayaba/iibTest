@@ -34,6 +34,7 @@ pipeline {
 		stage('Compilacion') {
             steps {
 				echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
+				sh "source /opt/ibm/iib-10.0.0.7/server/bin/mqsiprofile"
 				sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
             }
         }
