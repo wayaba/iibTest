@@ -39,7 +39,7 @@ pipeline {
 				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
 				
                     sh "pwd"
-					sh ". ./mqsiprofile"
+					sh " . ./mqsiprofile"
                 }
 				
 				//sh "sudo /opt/ibm/iib-10.0.0.10/server/bin . ./mqsiprofile"
