@@ -40,6 +40,7 @@ pipeline {
 				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
 				
                     sh "pwd"
+					sh "ls -l"
 					sh " . ./mqsiprofile"
                 }
 				
