@@ -39,9 +39,9 @@ pipeline {
 				echo "Seteo el environment"
 				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
 				
-                    sh "pwd"
-					echo "puto"
-					sh "ls -l"
+                    //sh "pwd"
+					//echo "puto"
+					//sh "ls -l"
 					sh " . ./mqsiprofile"
                 }
 				
