@@ -32,13 +32,6 @@ pipeline {
         }
 		*/
 		
-		stage('probando') {
-			def dotnet = docker.image('ppedraza/iibpiola:latest' args '-e LICENSE=accept -e NODENAME=DesaDocker2 -e SERVERNAME=MiSERVER2')
-			stage('a'){
-				sh ("dotnet . /opt/ibm/iib-10.0.0.7/server/bin/mqsiprofile")
-			}
-		}
-		
 		stage('Compilacion') {
             steps {
 				echo "Quien soy: "
