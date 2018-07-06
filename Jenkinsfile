@@ -33,6 +33,8 @@ pipeline {
 		*/
 		stage('Compilacion') {
             steps {
+				echo "Quien soy: "
+				sh "whoami"
 				echo "Seteo el environment"
 				sh "/opt/ibm/iib-10.0.0.10/server/bin . ./mqsiprofile"
 				echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
