@@ -31,21 +31,19 @@ pipeline {
 			}
         }
 		*/
-		/*
+		stage('set environment')
+		{
+			steps{
+				echo "Me paro en el directorio para setear el profile"
+				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
+					echo "Seteo profile"
+					sh " . ./mqsiprofile"
+					echo "profile seteado"
+                }
+			}
+		}
 		stage('Compilacion') {
             steps {
-				echo "Quien soy: "
-				sh "whoami"
-				echo "Seteo el environment"
-				
-				dir("/opt/ibm/iib-10.0.0.10/server/bin") {
-				
-                    //sh "pwd"
-					//echo "puto"
-					//sh "ls -l"
-					sh " . ./mqsiprofile"
-                }
-				
 				//sh "sudo /opt/ibm/iib-10.0.0.10/server/bin . ./mqsiprofile"
 				//sh " . ./opt/ibm/iib-10.0.0.10/server/bin/mqsiprofile"
 				echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
@@ -53,7 +51,7 @@ pipeline {
             }
 			
         }
-		*/
+		
 		
 		
     }
