@@ -1,4 +1,4 @@
-#!/usr/bin/env groovy
+#!/bin/bash
 
 node {
     stage('checkout') {
