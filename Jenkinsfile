@@ -1,7 +1,8 @@
 #!/bin/bash
 node {
 
-	sh "#!/bin/bash \n"
+	sh "#!/bin/bash \n" + 
+       "echo \"Hello from \$SHELL\""
 
     docker.image('ppedraza/iibpiola:latest').inside('-u 0:0 -e "LICENSE=accept" -e "NODENAME=DesaDocker1" -e "SERVERNAME=MiSERVER1"') {
         stage('adentro') {
