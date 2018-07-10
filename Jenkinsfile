@@ -12,16 +12,17 @@ pipeline {
 		string(name: 'barname', defaultValue: '/var/tmp/apimascotas.bar', description: '')
 		string(name: 'appname', defaultValue: 'ApiMascotas', description: '')
     }
-	/*
+	
     stages {
+	/*
         stage('Test') {
             steps {
                 sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 				sh "cat /var/jenkins_home/workspace/Pipelineando/README.md"
             }
         }
-		
-	*/
+		*/
+	
 		/*
 		stage('SonarQube') {
 		
@@ -55,8 +56,8 @@ pipeline {
 					echo "profile seteado"
                 }
 				*/
-			}
 		}
+		
 		stage('Compilacion') {
             steps {
 				//sh "sudo /opt/ibm/iib-10.0.0.10/server/bin . ./mqsiprofile"
