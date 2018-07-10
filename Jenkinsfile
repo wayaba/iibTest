@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { image 'ppedraza/iibpiola:latest' 
-                args '-e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1 -v /var/jenkins_home/workspace/iib:/opt/ibm/iib-10.0.0.10/server/bin'
+                args '-e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1'
         }
     }
 	parameters {
