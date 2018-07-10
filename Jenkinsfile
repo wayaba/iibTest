@@ -1,4 +1,5 @@
 pipeline {
+	agent none
 	/*
     agent {
         docker { image 'ppedraza/iibpiola:latest' 
