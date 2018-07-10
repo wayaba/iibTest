@@ -17,7 +17,7 @@ node {
 			echo "probando..."
 			sh "apt-get update"
 			echo "probando..."
-			sh "sudo apt-get install libswt-gtk-3-jni libswt-gtk-3-java"
+			sh "sudo apt-get --assume-yes install libswt-gtk-3-jni libswt-gtk-3-java"
 			echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
 			sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
 			
