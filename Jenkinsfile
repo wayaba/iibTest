@@ -10,6 +10,11 @@ node {
             echo "A ver..."
 			sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 			echo "A ver gas..."
+			dir("/opt/ibm/iib-10.0.0.10/server/bin") {
+					echo "Seteo profile"
+					sh " . ./mqsiprofile"
+					echo "profile seteado"
+                }
         }
 
         
