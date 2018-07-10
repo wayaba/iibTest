@@ -12,7 +12,8 @@ node {
 			echo "A ver gas..."
 			dir("/opt/ibm/iib-10.0.0.10/server/bin") {
 					echo "Seteo profile"
-					sh " . ./mqsiprofile"
+					//sh " . ./mqsiprofile"
+					sh " ls -l"
 					echo "profile seteado"
                 }
         }
