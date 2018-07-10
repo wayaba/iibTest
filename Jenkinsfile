@@ -8,7 +8,8 @@ node {
 			sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 			sh "whoami"
 			echo "A ver gas..."
-			sh "bash"
+			sh "/bin/bash"
+			echo "probando..."
 			sh ". /opt/ibm/iib-10.0.0.10/server/bin/mqsiprofile"
         }
 
