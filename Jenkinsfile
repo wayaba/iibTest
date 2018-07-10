@@ -11,7 +11,7 @@ node {
 			sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 			sh "whoami"
 			echo "A ver gas..."
-			sh ". /opt/ibm/iib-10.0.0.10/server/bin/mqsiprofile"
+			bash ". /opt/ibm/iib-10.0.0.10/server/bin/mqsiprofile"
         }
 
         
