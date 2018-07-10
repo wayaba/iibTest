@@ -19,7 +19,7 @@ pipeline {
 		stage('set environment')
 		{
 			steps{
-				docker.image('ppedraza/iibpiola:latest').withRun('-e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1')
+				docker.image("ppedraza/iibpiola:latest").withRun("-e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1")
 				{
 					echo "A ver..."
 					sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
