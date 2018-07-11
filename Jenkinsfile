@@ -15,9 +15,6 @@ node {
 			sh "whoami"
 			echo "A ver gas..."
 			echo "probando..."
-			sh "apt-get update"
-			echo "probando..."
-			sh "sudo apt-get --assume-yes install libswt-gtk-3-jni libswt-gtk-3-java xvfb"
 			sh 'export DISPLAY=":1"'
 			echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
 			sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
