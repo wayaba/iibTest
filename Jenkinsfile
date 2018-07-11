@@ -16,6 +16,7 @@ node {
 			echo "A ver gas..."
 			echo "probando..."
 			sh 'export DISPLAY=":1"'
+			echo "$DISPLAY"
 			echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
 			sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
 			
