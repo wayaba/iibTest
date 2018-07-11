@@ -25,6 +25,7 @@ pipeline {
 						sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 						echo "A ver gas..."
 						sh '''
+							sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &
 							export DISPLAY=":1"
 						'''
 					}
