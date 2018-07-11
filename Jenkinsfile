@@ -20,15 +20,16 @@ pipeline {
 	stages {
 	
 		stage('SonarQube analysis') {
-			// requires SonarQube Scanner 2.8+
-			def scannerHome = tool 'sonnar-jenkins'
-			withSonarQubeEnv('sonarqube') {
-				sh "${scannerHome}/bin/sonar-scanner \
-                                -Dsonar.projectKey=esqpipeline \
-								-Dsonar.projectname=Esqpipeline \
-								-Dsonar.projectVersion=1 \
-                                -Dsonar.sources=. \
-								-Dsonar.language=esql"
+			steps {
+				def scannerHome = tool 'sonnar-jenkins'
+				withSonarQubeEnv('sonarqube') {
+					sh "${scannerHome}/bin/sonar-scanner \
+									-Dsonar.projectKey=esqpipeline \
+									-Dsonar.projectname=Esqpipeline \
+									-Dsonar.projectVersion=1 \
+									-Dsonar.sources=. \
+									-Dsonar.language=esql"
+				}
 			}
 		}
 		
