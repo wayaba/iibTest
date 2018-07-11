@@ -1,11 +1,13 @@
 #!/bin/bash
 pipeline {
-
+/*
 	agent {
         docker { image 'ppedraza/iibpiola:latest' 
                 args '-u 0:0 -e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1'
         }
     }
+*/
+agent any
 	environment {
 		DISPLAY = ":1"
 	}
