@@ -1,13 +1,8 @@
 #!/bin/bash
 pipeline {
-/*
-	agent {
-        docker { image 'ppedraza/iibpiola:latest' 
-                args '-u 0:0 -e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1'
-        }
-    }
-*/
-agent any
+
+	agent any
+
 	environment {
 		DISPLAY = ":1"
 	}
@@ -37,27 +32,24 @@ agent any
 			}
 		}
 		
-		stage('set environment')
+		stage('Compilacion')
 			{
+				agent {
+					docker { image 'ppedraza/iibpiola:latest' 
+							args '-u 0:0 -e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1'
+					}
+				}
 				steps{
-						echo "A ver..."
-						sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 						echo "A ver gas..."
 						sh '''
 							sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &
 							export DISPLAY=":1"
 						'''
+						echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
+						sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
 					}
 					
 			}
 		
-		
-		stage('Compilacion') {
-				steps {
-					echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
-					sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
-				}
-				
-			}
 	}
 }
