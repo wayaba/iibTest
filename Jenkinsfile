@@ -16,7 +16,7 @@ node {
 			echo "A ver gas..."
 			echo "probando..."
 			 sh '''
-                        export DISPLAY=:0
+                        export DISPLAY=:1
                        
                     '''
 			echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
