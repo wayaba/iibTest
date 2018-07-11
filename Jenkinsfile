@@ -26,8 +26,8 @@ pipeline {
 						echo "A ver gas..."
 					}
 					
-				}
 			}
+		
 		
 		stage('Compilacion') {
 				steps {
