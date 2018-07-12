@@ -65,7 +65,7 @@ pipeline {
 							sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &
 							export DISPLAY=":1"
 						'''
-						echo "EJECUTO ${params.mqsihome}/server/bin/mqsideploy -i http://192.168.99.100 -p 4415 -a ${params.barname} -e MiSERVER1"
+						echo "EJECUTO ${params.mqsihome}/server/bin/mqsideploy -i http://192.168.99.100 -p 4415 -a ${params.barname} -e MiSERVER"
 						
 						sh "${params.mqsihome}/server/bin/mqsideploy -i 192.168.99.100 -p 4415 -a ${params.barname} -e MiSERVER1"
 					}
