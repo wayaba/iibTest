@@ -56,6 +56,7 @@ pipeline {
 				
 				steps{
 						echo "Salala"
+						sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
 					}
 					
 			}
