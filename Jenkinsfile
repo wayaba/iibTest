@@ -8,7 +8,7 @@ pipeline {
 	}
 	
 	parameters {
-        string(name: 'mqsihome', defaultValue: '/opt/ibm/iib-10.0.0.10/tools', description: '')
+        string(name: 'mqsihome', defaultValue: '/opt/ibm/iib-10.0.0.10', description: '')
 		string(name: 'workspacesdir', defaultValue: '/var/jenkins_home/workspace/Pipelineando', description: '')
 		string(name: 'barname', defaultValue: '/var/jenkins_home/workspace/bar/apimascotas.bar', description: '')
 		string(name: 'appname', defaultValue: 'ApiMascotas', description: '')
@@ -45,8 +45,8 @@ pipeline {
 							sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &
 							export DISPLAY=":1"
 						'''
-						echo "EJECUTO ${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
-						sh "${params.mqsihome}/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
+						echo "EJECUTO ${params.mqsihome}/tools/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname}"
+						sh "${params.mqsihome}/tools/mqsicreatebar -data ${params.workspacesdir} -b ${params.barname} -a ${params.appname} -skipWSErrorCheck"
 					}
 					
 			}
@@ -54,9 +54,20 @@ pipeline {
 		stage('Deploy')
 			{
 				
+				agent {
+					docker { image 'ppedraza/iibpiola:latest' 
+							args '-u 0:0 -e LICENSE=accept -e NODENAME=DesaDocker1 -e SERVERNAME=MiSERVER1'
+					}
+				}
 				steps{
-						echo "Salala"
-						sh "cat /opt/ibm/iib-10.0.0.10/tools/eclipse.ini"
+						echo "Set DISPLAY"
+						sh '''
+							sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &
+							export DISPLAY=":1"
+						'''
+						echo "EJECUTO ${params.mqsihome}/server/bin/mqsideploy -i http://192.168.99.100 -p 4415 -a ${params.barname} -e MiSERVER1"
+						
+						sh "${params.mqsihome}/server/bin/mqsideploy -i http://192.168.99.100 -p 4415 -a ${params.barname} -e MiSERVER1"
 					}
 					
 			}
